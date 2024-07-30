@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (vuelo) {
+      <div>
+        <h2 data-cy="vueloDetailsHeading"><span jhiTranslate="pingeonControlApp.vuelo.detail.title">Vuelo</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ vuelo.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.vuelo.fecha">Fecha</span></dt>
+          <dd>
+            <span>{{ vuelo.fecha | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.vuelo.descripcion">Descripcion</span></dt>
+          <dd>
+            <span>{{ vuelo.descripcion }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.vuelo.competencia">Competencia</span></dt>
+          <dd>
+            <span>{{ vuelo.competencia }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.vuelo.campeonato">Campeonato</span></dt>
+          <dd>
+            <span>{{ vuelo.campeonato }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.vuelo.paradero">Paradero</span></dt>
+          <dd>
+            @if (vuelo.paradero) {
+              <div>
+                <a [routerLink]="['/paradero', vuelo.paradero.id, 'view']">{{ vuelo.paradero.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/vuelo', vuelo.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

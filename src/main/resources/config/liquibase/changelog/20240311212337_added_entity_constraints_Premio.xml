@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Premio.
+    -->
+    <changeSet id="20240311212337-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="paloma_id"
+                                 baseTableName="premio"
+                                 constraintName="fk_premio__paloma_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="paloma"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="vuelo_id"
+                                 baseTableName="premio"
+                                 constraintName="fk_premio__vuelo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vuelo"
+                                 />
+    </changeSet>
+</databaseChangeLog>

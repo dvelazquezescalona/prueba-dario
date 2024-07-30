@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ColombofiloVuelo.
+    -->
+    <changeSet id="20240311212137-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="colombofilo_id"
+                                 baseTableName="colombofilo_vuelo"
+                                 constraintName="fk_colombofilo_vuelo__colombofilo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="colombofilo"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="vuelo_id"
+                                 baseTableName="colombofilo_vuelo"
+                                 constraintName="fk_colombofilo_vuelo__vuelo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vuelo"
+                                 />
+    </changeSet>
+</databaseChangeLog>

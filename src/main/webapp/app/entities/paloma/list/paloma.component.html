@@ -1,0 +1,144 @@
+<div>
+  <h2 id="page-heading" data-cy="PalomaHeading">
+    <span jhiTranslate="pingeonControlApp.paloma.home.title">Palomas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="pingeonControlApp.paloma.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-paloma"
+        [routerLink]="['/paloma/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="pingeonControlApp.paloma.home.createLabel">Create a new Paloma</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (palomas?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="pingeonControlApp.paloma.home.notFound">No Palomas found</span>
+    </div>
+  }
+
+  @if (palomas && palomas.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anilla">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.paloma.anilla">Anilla</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anno">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.paloma.anno">Anno</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="pais">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.paloma.pais">Pais</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sexo">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.paloma.sexo">Sexo</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="activo">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.paloma.activo">Activo</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="color.id">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.paloma.color">Color</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="colombofilo.id">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.paloma.colombofilo">Colombofilo</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (paloma of palomas; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/paloma', paloma.id, 'view']">{{ paloma.id }}</a>
+              </td>
+              <td>{{ paloma.anilla }}</td>
+              <td>{{ paloma.anno }}</td>
+              <td>{{ paloma.pais }}</td>
+              <td>{{ paloma.sexo }}</td>
+              <td>{{ paloma.activo }}</td>
+              <td>
+                @if (paloma.color) {
+                  <div>
+                    <a [routerLink]="['/color', paloma.color.id, 'view']">{{ paloma.color.id }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (paloma.colombofilo) {
+                  <div>
+                    <a [routerLink]="['/colombofilo', paloma.colombofilo.id, 'view']">{{ paloma.colombofilo.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/paloma', paloma.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/paloma', paloma.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(paloma)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

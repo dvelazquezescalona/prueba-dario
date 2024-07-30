@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20240311211737"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "municipio",
+  "fields": [
+    {
+      "fieldName": "nombreMunicipio",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Municipio",
+  "relationships": [
+    {
+      "otherEntityName": "sociedad",
+      "otherEntityRelationshipName": "municipio",
+      "relationshipName": "sociedad",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "provincia",
+      "otherEntityRelationshipName": "municipio",
+      "relationshipName": "provincia",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

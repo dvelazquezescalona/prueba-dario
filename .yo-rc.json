@@ -1,0 +1,32 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "pingeonControl",
+    "clientFramework": "angular",
+    "creationTimestamp": 1712705769358,
+    "devServerPort": 4200,
+    "entities": [
+      "Paradero",
+      "Provincia",
+      "Color",
+      "Municipio",
+      "Sociedad",
+      "Vuelo",
+      "Colombofilo",
+      "ColombofiloVuelo",
+      "Paloma",
+      "Premio",
+      "Pais"
+    ],
+    "jhipsterVersion": "8.1.0",
+    "jwtSecretKey": "OTE4NWU5NDM0ODIyNDhlYjBjZDNlMWY1MjEzMTNiYzQyNmM0MTJiZGUwYzA0NGU1OTI3YzRiNjg0NWM2MjNkOGJjOTdiZWYxMjZlNTk0Y2U2MTM0MzBkNDBhYzQyOTcxZWYyZmM0NDUyNDBiNDcyMjllZDMyNmI1M2ZhZWQ4Mjk=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1712705766000,
+    "nativeLanguage": "en",
+    "packageFolder": "cu/fcc/pigeon",
+    "packageName": "cu.fcc.pigeon",
+    "prodDatabaseType": "mysql"
+  }
+}

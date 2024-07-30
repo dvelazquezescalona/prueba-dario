@@ -1,0 +1,105 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-colombofilo-vuelo-heading"
+        data-cy="ColombofiloVueloCreateUpdateHeading"
+        jhiTranslate="pingeonControlApp.colombofiloVuelo.home.createOrEditLabel"
+      >
+        Create or edit a Colombofilo Vuelo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofiloVuelo.envidas" for="field_envidas">Envidas</label>
+          <input type="number" class="form-control" name="envidas" id="field_envidas" data-cy="envidas" formControlName="envidas" />
+          @if (editForm.get('envidas')!.invalid && (editForm.get('envidas')!.dirty || editForm.get('envidas')!.touched)) {
+            <div>
+              @if (editForm.get('envidas')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('envidas')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofiloVuelo.distancia" for="field_distancia">Distancia</label>
+          <input type="number" class="form-control" name="distancia" id="field_distancia" data-cy="distancia" formControlName="distancia" />
+          @if (editForm.get('distancia')!.invalid && (editForm.get('distancia')!.dirty || editForm.get('distancia')!.touched)) {
+            <div>
+              @if (editForm.get('distancia')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('distancia')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofiloVuelo.colombofilo" for="field_colombofilo"
+            >Colombofilo</label
+          >
+          <select
+            class="form-control"
+            id="field_colombofilo"
+            data-cy="colombofilo"
+            name="colombofilo"
+            formControlName="colombofilo"
+            [compareWith]="compareColombofilo"
+          >
+            <option [ngValue]="null"></option>
+            @for (colombofiloOption of colombofilosSharedCollection; track $index) {
+              <option [ngValue]="colombofiloOption">{{ colombofiloOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofiloVuelo.vuelo" for="field_vuelo">Vuelo</label>
+          <select class="form-control" id="field_vuelo" data-cy="vuelo" name="vuelo" formControlName="vuelo" [compareWith]="compareVuelo">
+            <option [ngValue]="null"></option>
+            @for (vueloOption of vuelosSharedCollection; track $index) {
+              <option [ngValue]="vueloOption">{{ vueloOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

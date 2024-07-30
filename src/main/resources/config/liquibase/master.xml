@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="floatType" value="float" dbms="mysql"/>
+    <property name="clobType" value="clob" dbms="mysql"/>
+    <property name="blobType" value="longblob" dbms="mysql"/>
+    <property name="uuidType" value="varchar(36)" dbms="mysql"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211437_added_entity_Paradero.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211537_added_entity_Provincia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211637_added_entity_Color.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211737_added_entity_Municipio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211837_added_entity_Sociedad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211937_added_entity_Vuelo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212037_added_entity_Colombofilo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212137_added_entity_ColombofiloVuelo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212237_added_entity_Paloma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212337_added_entity_Premio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240409233606_added_entity_Pais.xml" relativeToChangelogFile="false"/>
+
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20240311211437_added_entity_constraints_Paradero.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211737_added_entity_constraints_Municipio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211837_added_entity_constraints_Sociedad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311211937_added_entity_constraints_Vuelo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212037_added_entity_constraints_Colombofilo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212137_added_entity_constraints_ColombofiloVuelo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212237_added_entity_constraints_Paloma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20240311212337_added_entity_constraints_Premio.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+    <!-- Load nomencladores -->
+    <include file="config/liquibase/changelog/20240410142000_load_data_Nomencladores.xml" relativeToChangelogFile="false"/>
+
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

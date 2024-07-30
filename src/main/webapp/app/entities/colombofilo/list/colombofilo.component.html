@@ -1,0 +1,171 @@
+<div>
+  <h2 id="page-heading" data-cy="ColombofiloHeading">
+    <span jhiTranslate="pingeonControlApp.colombofilo.home.title">Colombofilos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="pingeonControlApp.colombofilo.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-colombofilo"
+        [routerLink]="['/colombofilo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="pingeonControlApp.colombofilo.home.createLabel">Create a new Colombofilo</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (colombofilos?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="pingeonControlApp.colombofilo.home.notFound">No Colombofilos found</span>
+    </div>
+  }
+
+  @if (colombofilos && colombofilos.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nombre">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.nombre">Nombre</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="primerApellido">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.primerApellido">Primer Apellido</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="segindoApellido">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.segindoApellido">Segindo Apellido</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ci">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.ci">Ci</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="latitud">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.latitud">Latitud</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longitud">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.longitud">Longitud</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="direccion">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.direccion">Direccion</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="categoria">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.categoria">Categoria</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="telefono">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.telefono">Telefono</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="zona">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.zona">Zona</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sociedad.id">
+              <div class="d-flex">
+                <span jhiTranslate="pingeonControlApp.colombofilo.sociedad">Sociedad</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (colombofilo of colombofilos; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/colombofilo', colombofilo.id, 'view']">{{ colombofilo.id }}</a>
+              </td>
+              <td>{{ colombofilo.nombre }}</td>
+              <td>{{ colombofilo.primerApellido }}</td>
+              <td>{{ colombofilo.segindoApellido }}</td>
+              <td>{{ colombofilo.ci }}</td>
+              <td>{{ colombofilo.latitud }}</td>
+              <td>{{ colombofilo.longitud }}</td>
+              <td>{{ colombofilo.direccion }}</td>
+              <td>{{ colombofilo.categoria }}</td>
+              <td>{{ colombofilo.telefono }}</td>
+              <td>{{ colombofilo.zona }}</td>
+              <td>
+                @if (colombofilo.sociedad) {
+                  <div>
+                    <a [routerLink]="['/sociedad', colombofilo.sociedad.id, 'view']">{{ colombofilo.sociedad.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/colombofilo', colombofilo.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/colombofilo', colombofilo.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(colombofilo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

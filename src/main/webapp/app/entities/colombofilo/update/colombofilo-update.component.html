@@ -1,0 +1,197 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-colombofilo-heading"
+        data-cy="ColombofiloCreateUpdateHeading"
+        jhiTranslate="pingeonControlApp.colombofilo.home.createOrEditLabel"
+      >
+        Create or edit a Colombofilo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+          @if (editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)) {
+            <div>
+              @if (editForm.get('nombre')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.primerApellido" for="field_primerApellido"
+            >Primer Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="primerApellido"
+            id="field_primerApellido"
+            data-cy="primerApellido"
+            formControlName="primerApellido"
+          />
+          @if (
+            editForm.get('primerApellido')!.invalid && (editForm.get('primerApellido')!.dirty || editForm.get('primerApellido')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('primerApellido')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.segindoApellido" for="field_segindoApellido"
+            >Segindo Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="segindoApellido"
+            id="field_segindoApellido"
+            data-cy="segindoApellido"
+            formControlName="segindoApellido"
+          />
+          @if (
+            editForm.get('segindoApellido')!.invalid && (editForm.get('segindoApellido')!.dirty || editForm.get('segindoApellido')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('segindoApellido')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.ci" for="field_ci">Ci</label>
+          <input type="text" class="form-control" name="ci" id="field_ci" data-cy="ci" formControlName="ci" />
+          @if (editForm.get('ci')!.invalid && (editForm.get('ci')!.dirty || editForm.get('ci')!.touched)) {
+            <div>
+              @if (editForm.get('ci')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.latitud" for="field_latitud">Latitud</label>
+          <input type="number" class="form-control" name="latitud" id="field_latitud" data-cy="latitud" formControlName="latitud" />
+          @if (editForm.get('latitud')!.invalid && (editForm.get('latitud')!.dirty || editForm.get('latitud')!.touched)) {
+            <div>
+              @if (editForm.get('latitud')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('latitud')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.longitud" for="field_longitud">Longitud</label>
+          <input type="number" class="form-control" name="longitud" id="field_longitud" data-cy="longitud" formControlName="longitud" />
+          @if (editForm.get('longitud')!.invalid && (editForm.get('longitud')!.dirty || editForm.get('longitud')!.touched)) {
+            <div>
+              @if (editForm.get('longitud')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('longitud')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.direccion" for="field_direccion">Direccion</label>
+          <input type="text" class="form-control" name="direccion" id="field_direccion" data-cy="direccion" formControlName="direccion" />
+          @if (editForm.get('direccion')!.invalid && (editForm.get('direccion')!.dirty || editForm.get('direccion')!.touched)) {
+            <div>
+              @if (editForm.get('direccion')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.categoria" for="field_categoria">Categoria</label>
+          <input type="text" class="form-control" name="categoria" id="field_categoria" data-cy="categoria" formControlName="categoria" />
+          @if (editForm.get('categoria')!.invalid && (editForm.get('categoria')!.dirty || editForm.get('categoria')!.touched)) {
+            <div>
+              @if (editForm.get('categoria')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.telefono" for="field_telefono">Telefono</label>
+          <input type="text" class="form-control" name="telefono" id="field_telefono" data-cy="telefono" formControlName="telefono" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.zona" for="field_zona">Zona</label>
+          <input type="text" class="form-control" name="zona" id="field_zona" data-cy="zona" formControlName="zona" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.colombofilo.sociedad" for="field_sociedad">Sociedad</label>
+          <select
+            class="form-control"
+            id="field_sociedad"
+            data-cy="sociedad"
+            name="sociedad"
+            formControlName="sociedad"
+            [compareWith]="compareSociedad"
+          >
+            <option [ngValue]="null"></option>
+            @for (sociedadOption of sociedadsSharedCollection; track $index) {
+              <option [ngValue]="sociedadOption">{{ sociedadOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = cu.fcc.pigeon.\
+    config.SqlTestContainersSpringContextCustomizerFactory

@@ -1,0 +1,36 @@
+{
+  "pingeonControlApp": {
+    "colombofilo": {
+      "home": {
+        "title": "Colombofilos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Colombofilo",
+        "createOrEditLabel": "Create or edit a Colombofilo",
+        "notFound": "No Colombofilos found"
+      },
+      "created": "A new Colombofilo is created with identifier {{ param }}",
+      "updated": "A Colombofilo is updated with identifier {{ param }}",
+      "deleted": "A Colombofilo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Colombofilo {{ id }}?"
+      },
+      "detail": {
+        "title": "Colombofilo"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "primerApellido": "Primer Apellido",
+      "segindoApellido": "Segindo Apellido",
+      "ci": "Ci",
+      "latitud": "Latitud",
+      "longitud": "Longitud",
+      "direccion": "Direccion",
+      "categoria": "Categoria",
+      "telefono": "Telefono",
+      "zona": "Zona",
+      "paloma": "Paloma",
+      "colombofiloVuelo": "Colombofilo Vuelo",
+      "sociedad": "Sociedad"
+    }
+  }
+}

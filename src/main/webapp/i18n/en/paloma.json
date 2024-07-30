@@ -1,0 +1,31 @@
+{
+  "pingeonControlApp": {
+    "paloma": {
+      "home": {
+        "title": "Palomas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Paloma",
+        "createOrEditLabel": "Create or edit a Paloma",
+        "notFound": "No Palomas found"
+      },
+      "created": "A new Paloma is created with identifier {{ param }}",
+      "updated": "A Paloma is updated with identifier {{ param }}",
+      "deleted": "A Paloma is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Paloma {{ id }}?"
+      },
+      "detail": {
+        "title": "Paloma"
+      },
+      "id": "ID",
+      "anilla": "Anilla",
+      "anno": "Anno",
+      "pais": "Pais",
+      "sexo": "Sexo",
+      "activo": "Activo",
+      "premio": "Premio",
+      "color": "Color",
+      "colombofilo": "Colombofilo"
+    }
+  }
+}

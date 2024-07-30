@@ -1,0 +1,27 @@
+{
+  "pingeonControlApp": {
+    "colombofiloVuelo": {
+      "home": {
+        "title": "Colombofilo Vuelos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Colombofilo Vuelo",
+        "createOrEditLabel": "Create or edit a Colombofilo Vuelo",
+        "notFound": "No Colombofilo Vuelos found"
+      },
+      "created": "A new Colombofilo Vuelo is created with identifier {{ param }}",
+      "updated": "A Colombofilo Vuelo is updated with identifier {{ param }}",
+      "deleted": "A Colombofilo Vuelo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Colombofilo Vuelo {{ id }}?"
+      },
+      "detail": {
+        "title": "Colombofilo Vuelo"
+      },
+      "id": "ID",
+      "envidas": "Envidas",
+      "distancia": "Distancia",
+      "colombofilo": "Colombofilo",
+      "vuelo": "Vuelo"
+    }
+  }
+}

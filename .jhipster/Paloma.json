@@ -1,0 +1,59 @@
+{
+  "annotations": {
+    "changelogDate": "20240311212237"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "paloma",
+  "fields": [
+    {
+      "fieldName": "anilla",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "anno",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "pais",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "activo",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Paloma",
+  "relationships": [
+    {
+      "otherEntityName": "premio",
+      "otherEntityRelationshipName": "paloma",
+      "relationshipName": "premio",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "color",
+      "otherEntityRelationshipName": "paloma",
+      "relationshipName": "color",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "colombofilo",
+      "otherEntityRelationshipName": "paloma",
+      "relationshipName": "colombofilo",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

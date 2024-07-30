@@ -1,0 +1,141 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-paradero-heading" data-cy="ParaderoCreateUpdateHeading" jhiTranslate="pingeonControlApp.paradero.home.createOrEditLabel">
+        Create or edit a Paradero
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.paradero.nombreParadero" for="field_nombreParadero"
+            >Nombre Paradero</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombreParadero"
+            id="field_nombreParadero"
+            data-cy="nombreParadero"
+            formControlName="nombreParadero"
+          />
+          @if (
+            editForm.get('nombreParadero')!.invalid && (editForm.get('nombreParadero')!.dirty || editForm.get('nombreParadero')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('nombreParadero')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.paradero.distanciaMedia" for="field_distanciaMedia"
+            >Distancia Media</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="distanciaMedia"
+            id="field_distanciaMedia"
+            data-cy="distanciaMedia"
+            formControlName="distanciaMedia"
+          />
+          @if (
+            editForm.get('distanciaMedia')!.invalid && (editForm.get('distanciaMedia')!.dirty || editForm.get('distanciaMedia')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('distanciaMedia')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('distanciaMedia')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.paradero.latitud" for="field_latitud">Latitud</label>
+          <input type="number" class="form-control" name="latitud" id="field_latitud" data-cy="latitud" formControlName="latitud" />
+          @if (editForm.get('latitud')!.invalid && (editForm.get('latitud')!.dirty || editForm.get('latitud')!.touched)) {
+            <div>
+              @if (editForm.get('latitud')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('latitud')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.paradero.longitud" for="field_longitud">Longitud</label>
+          <input type="number" class="form-control" name="longitud" id="field_longitud" data-cy="longitud" formControlName="longitud" />
+          @if (editForm.get('longitud')!.invalid && (editForm.get('longitud')!.dirty || editForm.get('longitud')!.touched)) {
+            <div>
+              @if (editForm.get('longitud')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('longitud')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.paradero.sociedad" for="field_sociedad">Sociedad</label>
+          <select
+            class="form-control"
+            id="field_sociedad"
+            data-cy="sociedad"
+            name="sociedad"
+            formControlName="sociedad"
+            [compareWith]="compareSociedad"
+          >
+            <option [ngValue]="null"></option>
+            @for (sociedadOption of sociedadsSharedCollection; track $index) {
+              <option [ngValue]="sociedadOption">{{ sociedadOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

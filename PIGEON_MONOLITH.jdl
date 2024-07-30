@@ -1,0 +1,125 @@
+
+application {
+  config {
+    baseName pingeonControl
+    applicationType monolith
+    packageName cu.fcc.pigeon
+    authenticationType jwt
+    prodDatabaseType mysql
+    clientFramework angularX
+  }
+  entities *
+}
+
+entity Paradero {
+	nombreParadero String required
+    distanciaMedia Integer required
+    latitud Double required
+    longitud Double required
+}
+
+entity Provincia {
+	nombreProvincia String required
+}
+
+entity Color{
+	nombreColor String required
+}
+
+entity Municipio {
+	nombreMunicipio String required
+}
+
+entity Sociedad {
+	nombreSociedad String required
+    latitud Double required
+    longitud Double required
+}
+
+entity Vuelo{
+	fecha Instant required
+    descripcion String required
+    competencia String required
+    campeonato String required
+}
+
+entity Colombofilo{
+    nombre String required
+    primerApellido String required
+    segindoApellido String required
+    ci String required
+    latitud Double required
+    longitud Double required
+    direccion String required
+    categoria String required
+    telefono String  
+    zona String
+}
+
+entity ColombofiloVuelo {
+	envidas Integer required
+    distancia Double required
+}
+
+entity Paloma {
+	anilla String required
+    anno String required
+    pais String required
+    sexo Boolean required
+    activo Boolean   
+}
+
+entity Premio {
+	designada Boolean required
+    fechaArribo Instant required
+    tiempoVuelo Integer
+    velocidad Double
+    lugar Integer
+    puntos Double
+}
+
+relationship OneToMany {
+	Paloma{premio} to Premio{paloma}	
+}
+
+relationship OneToMany {
+	Color{paloma} to Paloma{color}
+    Colombofilo{paloma} to Paloma{colombofilo}
+}
+
+relationship OneToMany {
+	Colombofilo{colombofiloVuelo} to ColombofiloVuelo{colombofilo} 
+    Sociedad{colombofilo} to Colombofilo{sociedad}
+}
+
+
+relationship OneToMany {
+ 	Provincia{municipio} to Municipio{provincia}
+}
+
+relationship OneToMany {
+    Municipio{sociedad} to Sociedad{municipio}
+}
+
+relationship OneToMany {
+	Sociedad{paradero} to Paradero{sociedad}
+}
+
+relationship OneToMany {
+	Paradero{vuelo} to Vuelo{paradero}
+    Vuelo{colombofiloVuelo} to ColombofiloVuelo{vuelo}
+    Vuelo{premio} to Premio{vuelo}
+}
+
+// Set pagination options
+
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Municipio, Provincia
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+

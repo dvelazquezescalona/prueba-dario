@@ -1,0 +1,29 @@
+{
+  "pingeonControlApp": {
+    "paradero": {
+      "home": {
+        "title": "Paraderos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Paradero",
+        "createOrEditLabel": "Create or edit a Paradero",
+        "notFound": "No Paraderos found"
+      },
+      "created": "A new Paradero is created with identifier {{ param }}",
+      "updated": "A Paradero is updated with identifier {{ param }}",
+      "deleted": "A Paradero is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Paradero {{ id }}?"
+      },
+      "detail": {
+        "title": "Paradero"
+      },
+      "id": "ID",
+      "nombreParadero": "Nombre Paradero",
+      "distanciaMedia": "Distancia Media",
+      "latitud": "Latitud",
+      "longitud": "Longitud",
+      "vuelo": "Vuelo",
+      "sociedad": "Sociedad"
+    }
+  }
+}

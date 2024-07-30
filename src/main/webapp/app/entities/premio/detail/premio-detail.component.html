@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (premio) {
+      <div>
+        <h2 data-cy="premioDetailsHeading"><span jhiTranslate="pingeonControlApp.premio.detail.title">Premio</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ premio.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.designada">Designada</span></dt>
+          <dd>
+            <span>{{ premio.designada }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.fechaArribo">Fecha Arribo</span></dt>
+          <dd>
+            <span>{{ premio.fechaArribo | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.tiempoVuelo">Tiempo Vuelo</span></dt>
+          <dd>
+            <span>{{ premio.tiempoVuelo }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.velocidad">Velocidad</span></dt>
+          <dd>
+            <span>{{ premio.velocidad }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.lugar">Lugar</span></dt>
+          <dd>
+            <span>{{ premio.lugar }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.puntos">Puntos</span></dt>
+          <dd>
+            <span>{{ premio.puntos }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.paloma">Paloma</span></dt>
+          <dd>
+            @if (premio.paloma) {
+              <div>
+                <a [routerLink]="['/paloma', premio.paloma.id, 'view']">{{ premio.paloma.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.premio.vuelo">Vuelo</span></dt>
+          <dd>
+            @if (premio.vuelo) {
+              <div>
+                <a [routerLink]="['/vuelo', premio.vuelo.id, 'view']">{{ premio.vuelo.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/premio', premio.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

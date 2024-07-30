@@ -1,0 +1,130 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-premio-heading" data-cy="PremioCreateUpdateHeading" jhiTranslate="pingeonControlApp.premio.home.createOrEditLabel">
+        Create or edit a Premio
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.designada" for="field_designada">Designada</label>
+          <input type="checkbox" class="form-check" name="designada" id="field_designada" data-cy="designada" formControlName="designada" />
+          @if (editForm.get('designada')!.invalid && (editForm.get('designada')!.dirty || editForm.get('designada')!.touched)) {
+            <div>
+              @if (editForm.get('designada')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.fechaArribo" for="field_fechaArribo">Fecha Arribo</label>
+          <div class="d-flex">
+            <input
+              id="field_fechaArribo"
+              data-cy="fechaArribo"
+              type="datetime-local"
+              class="form-control"
+              name="fechaArribo"
+              formControlName="fechaArribo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (editForm.get('fechaArribo')!.invalid && (editForm.get('fechaArribo')!.dirty || editForm.get('fechaArribo')!.touched)) {
+            <div>
+              @if (editForm.get('fechaArribo')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('fechaArribo')?.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.tiempoVuelo" for="field_tiempoVuelo">Tiempo Vuelo</label>
+          <input
+            type="number"
+            class="form-control"
+            name="tiempoVuelo"
+            id="field_tiempoVuelo"
+            data-cy="tiempoVuelo"
+            formControlName="tiempoVuelo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.velocidad" for="field_velocidad">Velocidad</label>
+          <input type="number" class="form-control" name="velocidad" id="field_velocidad" data-cy="velocidad" formControlName="velocidad" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.lugar" for="field_lugar">Lugar</label>
+          <input type="number" class="form-control" name="lugar" id="field_lugar" data-cy="lugar" formControlName="lugar" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.puntos" for="field_puntos">Puntos</label>
+          <input type="number" class="form-control" name="puntos" id="field_puntos" data-cy="puntos" formControlName="puntos" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.paloma" for="field_paloma">Paloma</label>
+          <select
+            class="form-control"
+            id="field_paloma"
+            data-cy="paloma"
+            name="paloma"
+            formControlName="paloma"
+            [compareWith]="comparePaloma"
+          >
+            <option [ngValue]="null"></option>
+            @for (palomaOption of palomasSharedCollection; track $index) {
+              <option [ngValue]="palomaOption">{{ palomaOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="pingeonControlApp.premio.vuelo" for="field_vuelo">Vuelo</label>
+          <select class="form-control" id="field_vuelo" data-cy="vuelo" name="vuelo" formControlName="vuelo" [compareWith]="compareVuelo">
+            <option [ngValue]="null"></option>
+            @for (vueloOption of vuelosSharedCollection; track $index) {
+              <option [ngValue]="vueloOption">{{ vueloOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

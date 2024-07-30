@@ -1,0 +1,83 @@
+{
+  "annotations": {
+    "changelogDate": "20240311212037"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "colombofilo",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "primerApellido",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "segindoApellido",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ci",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "latitud",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "longitud",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "categoria",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "zona",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Colombofilo",
+  "relationships": [
+    {
+      "otherEntityName": "paloma",
+      "otherEntityRelationshipName": "colombofilo",
+      "relationshipName": "paloma",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "colombofiloVuelo",
+      "otherEntityRelationshipName": "colombofilo",
+      "relationshipName": "colombofiloVuelo",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "sociedad",
+      "otherEntityRelationshipName": "colombofilo",
+      "relationshipName": "sociedad",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

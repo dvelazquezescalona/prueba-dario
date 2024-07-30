@@ -1,0 +1,55 @@
+{
+  "annotations": {
+    "changelogDate": "20240311211937"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "vuelo",
+  "fields": [
+    {
+      "fieldName": "fecha",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "competencia",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "campeonato",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Vuelo",
+  "relationships": [
+    {
+      "otherEntityName": "colombofiloVuelo",
+      "otherEntityRelationshipName": "vuelo",
+      "relationshipName": "colombofiloVuelo",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "premio",
+      "otherEntityRelationshipName": "vuelo",
+      "relationshipName": "premio",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "paradero",
+      "otherEntityRelationshipName": "vuelo",
+      "relationshipName": "paradero",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (paloma) {
+      <div>
+        <h2 data-cy="palomaDetailsHeading"><span jhiTranslate="pingeonControlApp.paloma.detail.title">Paloma</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ paloma.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paloma.anilla">Anilla</span></dt>
+          <dd>
+            <span>{{ paloma.anilla }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paloma.anno">Anno</span></dt>
+          <dd>
+            <span>{{ paloma.anno }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paloma.pais">Pais</span></dt>
+          <dd>
+            <span>{{ paloma.pais }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paloma.sexo">Sexo</span></dt>
+          <dd>
+            <span>{{ paloma.sexo }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paloma.activo">Activo</span></dt>
+          <dd>
+            <span>{{ paloma.activo }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paloma.color">Color</span></dt>
+          <dd>
+            @if (paloma.color) {
+              <div>
+                <a [routerLink]="['/color', paloma.color.id, 'view']">{{ paloma.color.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paloma.colombofilo">Colombofilo</span></dt>
+          <dd>
+            @if (paloma.colombofilo) {
+              <div>
+                <a [routerLink]="['/colombofilo', paloma.colombofilo.id, 'view']">{{ paloma.colombofilo.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/paloma', paloma.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

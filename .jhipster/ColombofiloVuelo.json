@@ -1,0 +1,38 @@
+{
+  "annotations": {
+    "changelogDate": "20240311212137"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "colombofilo_vuelo",
+  "fields": [
+    {
+      "fieldName": "envidas",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "distancia",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ColombofiloVuelo",
+  "relationships": [
+    {
+      "otherEntityName": "colombofilo",
+      "otherEntityRelationshipName": "colombofiloVuelo",
+      "relationshipName": "colombofilo",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "vuelo",
+      "otherEntityRelationshipName": "colombofiloVuelo",
+      "relationshipName": "vuelo",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

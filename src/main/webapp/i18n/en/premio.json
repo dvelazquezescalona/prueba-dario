@@ -1,0 +1,31 @@
+{
+  "pingeonControlApp": {
+    "premio": {
+      "home": {
+        "title": "Premios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Premio",
+        "createOrEditLabel": "Create or edit a Premio",
+        "notFound": "No Premios found"
+      },
+      "created": "A new Premio is created with identifier {{ param }}",
+      "updated": "A Premio is updated with identifier {{ param }}",
+      "deleted": "A Premio is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Premio {{ id }}?"
+      },
+      "detail": {
+        "title": "Premio"
+      },
+      "id": "ID",
+      "designada": "Designada",
+      "fechaArribo": "Fecha Arribo",
+      "tiempoVuelo": "Tiempo Vuelo",
+      "velocidad": "Velocidad",
+      "lugar": "Lugar",
+      "puntos": "Puntos",
+      "paloma": "Paloma",
+      "vuelo": "Vuelo"
+    }
+  }
+}

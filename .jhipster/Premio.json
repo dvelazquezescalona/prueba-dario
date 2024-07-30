@@ -1,0 +1,54 @@
+{
+  "annotations": {
+    "changelogDate": "20240311212337"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "premio",
+  "fields": [
+    {
+      "fieldName": "designada",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaArribo",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tiempoVuelo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "velocidad",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lugar",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "puntos",
+      "fieldType": "Double"
+    }
+  ],
+  "name": "Premio",
+  "relationships": [
+    {
+      "otherEntityName": "paloma",
+      "otherEntityRelationshipName": "premio",
+      "relationshipName": "paloma",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "vuelo",
+      "otherEntityRelationshipName": "premio",
+      "relationshipName": "vuelo",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,29 @@
+{
+  "pingeonControlApp": {
+    "sociedad": {
+      "home": {
+        "title": "Sociedads",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sociedad",
+        "createOrEditLabel": "Create or edit a Sociedad",
+        "notFound": "No Sociedads found"
+      },
+      "created": "A new Sociedad is created with identifier {{ param }}",
+      "updated": "A Sociedad is updated with identifier {{ param }}",
+      "deleted": "A Sociedad is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sociedad {{ id }}?"
+      },
+      "detail": {
+        "title": "Sociedad"
+      },
+      "id": "ID",
+      "nombreSociedad": "Nombre Sociedad",
+      "latitud": "Latitud",
+      "longitud": "Longitud",
+      "colombofilo": "Colombofilo",
+      "paradero": "Paradero",
+      "municipio": "Municipio"
+    }
+  }
+}

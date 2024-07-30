@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (colombofilo) {
+      <div>
+        <h2 data-cy="colombofiloDetailsHeading"><span jhiTranslate="pingeonControlApp.colombofilo.detail.title">Colombofilo</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ colombofilo.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.nombre">Nombre</span></dt>
+          <dd>
+            <span>{{ colombofilo.nombre }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.primerApellido">Primer Apellido</span></dt>
+          <dd>
+            <span>{{ colombofilo.primerApellido }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.segindoApellido">Segindo Apellido</span></dt>
+          <dd>
+            <span>{{ colombofilo.segindoApellido }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.ci">Ci</span></dt>
+          <dd>
+            <span>{{ colombofilo.ci }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.latitud">Latitud</span></dt>
+          <dd>
+            <span>{{ colombofilo.latitud }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.longitud">Longitud</span></dt>
+          <dd>
+            <span>{{ colombofilo.longitud }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.direccion">Direccion</span></dt>
+          <dd>
+            <span>{{ colombofilo.direccion }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.categoria">Categoria</span></dt>
+          <dd>
+            <span>{{ colombofilo.categoria }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.telefono">Telefono</span></dt>
+          <dd>
+            <span>{{ colombofilo.telefono }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.zona">Zona</span></dt>
+          <dd>
+            <span>{{ colombofilo.zona }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.colombofilo.sociedad">Sociedad</span></dt>
+          <dd>
+            @if (colombofilo.sociedad) {
+              <div>
+                <a [routerLink]="['/sociedad', colombofilo.sociedad.id, 'view']">{{ colombofilo.sociedad.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/colombofilo', colombofilo.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,50 @@
+{
+  "annotations": {
+    "changelogDate": "20240311211837"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "sociedad",
+  "fields": [
+    {
+      "fieldName": "nombreSociedad",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "latitud",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "longitud",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Sociedad",
+  "relationships": [
+    {
+      "otherEntityName": "colombofilo",
+      "otherEntityRelationshipName": "sociedad",
+      "relationshipName": "colombofilo",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "paradero",
+      "otherEntityRelationshipName": "sociedad",
+      "relationshipName": "paradero",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "sociedad",
+      "relationshipName": "municipio",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

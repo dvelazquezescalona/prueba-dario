@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (sociedad) {
+      <div>
+        <h2 data-cy="sociedadDetailsHeading"><span jhiTranslate="pingeonControlApp.sociedad.detail.title">Sociedad</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ sociedad.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.sociedad.nombreSociedad">Nombre Sociedad</span></dt>
+          <dd>
+            <span>{{ sociedad.nombreSociedad }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.sociedad.latitud">Latitud</span></dt>
+          <dd>
+            <span>{{ sociedad.latitud }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.sociedad.longitud">Longitud</span></dt>
+          <dd>
+            <span>{{ sociedad.longitud }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.sociedad.municipio">Municipio</span></dt>
+          <dd>
+            @if (sociedad.municipio) {
+              <div>
+                <a [routerLink]="['/municipio', sociedad.municipio.id, 'view']">{{ sociedad.municipio.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/sociedad', sociedad.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

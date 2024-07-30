@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+
+    <!--
+        Load Colores
+    -->
+
+    <changeSet id="20240410152500-1-data" author="David" context="nomencladores">
+        <loadData
+            file="config/liquibase/nomencladores/color.csv"
+            separator=";"
+            tableName="color"
+            usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="nombre_color" type="string"/>
+            <column name="codigo" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+    <!--
+        Load Paises
+    -->
+    <changeSet id="20240410152500-2-data" author="David" context="nomencladores">
+        <loadData
+            file="config/liquibase/nomencladores/pais.csv"
+            separator=";"
+            tableName="pais"
+            usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="codigo" type="string"/>
+            <column name="nombre" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+
+
+    <!--
+        load data Provincia
+    -->
+
+    <changeSet id="20240410152500-3-data" author="David" context="nomencladores">
+        <loadData
+            file="config/liquibase/nomencladores/provincia.csv"
+            separator=";"
+            tableName="provincia"
+            usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="nombre_provincia" type="string"/>
+            <column name="codigo" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+
+    <!--
+        Load Municipios
+    -->
+
+    <changeSet id="20240410152500-4-data" author="David" context="nomencladores">
+        <loadData
+            file="config/liquibase/nomencladores/municipio.csv"
+            separator=";"
+            tableName="municipio"
+            usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="nombre_municipio" type="string"/>
+            <column name="provincia_id" type="numeric"/>
+
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

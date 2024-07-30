@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (paradero) {
+      <div>
+        <h2 data-cy="paraderoDetailsHeading"><span jhiTranslate="pingeonControlApp.paradero.detail.title">Paradero</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ paradero.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paradero.nombreParadero">Nombre Paradero</span></dt>
+          <dd>
+            <span>{{ paradero.nombreParadero }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paradero.distanciaMedia">Distancia Media</span></dt>
+          <dd>
+            <span>{{ paradero.distanciaMedia }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paradero.latitud">Latitud</span></dt>
+          <dd>
+            <span>{{ paradero.latitud }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paradero.longitud">Longitud</span></dt>
+          <dd>
+            <span>{{ paradero.longitud }}</span>
+          </dd>
+          <dt><span jhiTranslate="pingeonControlApp.paradero.sociedad">Sociedad</span></dt>
+          <dd>
+            @if (paradero.sociedad) {
+              <div>
+                <a [routerLink]="['/sociedad', paradero.sociedad.id, 'view']">{{ paradero.sociedad.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/paradero', paradero.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

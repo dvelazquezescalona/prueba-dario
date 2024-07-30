@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": "20240311211637"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "color",
+  "fields": [
+    {
+      "fieldName": "nombreColor",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Color",
+  "relationships": [
+    {
+      "otherEntityName": "paloma",
+      "otherEntityRelationshipName": "color",
+      "relationshipName": "paloma",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

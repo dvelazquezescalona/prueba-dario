@@ -1,0 +1,48 @@
+{
+  "annotations": {
+    "changelogDate": "20240311211437"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "paradero",
+  "fields": [
+    {
+      "fieldName": "nombreParadero",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "distanciaMedia",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "latitud",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "longitud",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Paradero",
+  "relationships": [
+    {
+      "otherEntityName": "vuelo",
+      "otherEntityRelationshipName": "paradero",
+      "relationshipName": "vuelo",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "sociedad",
+      "otherEntityRelationshipName": "paradero",
+      "relationshipName": "sociedad",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

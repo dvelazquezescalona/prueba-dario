@@ -1,0 +1,25 @@
+{
+  "annotations": {
+    "changelogDate": "20240311211537"
+  },
+  "applications": ["pingeonControl"],
+  "entityTableName": "provincia",
+  "fields": [
+    {
+      "fieldName": "nombreProvincia",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Provincia",
+  "relationships": [
+    {
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "provincia",
+      "relationshipName": "municipio",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
